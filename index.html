@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Maukea | Validate</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <main>
+            <div class="h-screen w-6/12 m-auto container">
+                <div class="grid place-items-center mt-10 mb-5 top">
+                    <!-- <span>LOGO</span> -->
+                    <a href="https://maukea.com">
+                        <img src="images/logo_transparent.png" alt="logo" class="flex justify-center"
+                            style="max-height: 120px;">
+                        <p class="text-center text-lg font-medium">Maukea Financial LLC</p>
+                    </a>
+                </div>
+                <header class="text-center text-xl font-bold">
+                    <h2 class="text-gray-700 ">Validate your Phone Number</h2>
+                </header>
+                <div>
+                    <form class="pt-5 mb-5">
+                        <div class="flex flex-col justify-center items-center">
+                            <input
+                                class="shadow appearance-none border rounded w-9/12 py-5 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                id="number" type="number" placeholder="PhoneNumber">
+                        </div>
+                        <div class="flex flex-col justify-center items-center mt-5">
+                            <button type="submit"
+                                class=" px-4 py-2 border
+                              border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 
+                               active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25  ml-4">
+                                Validate
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div>
+                    <h3 class="text-center text-lg font-normal text-gray-700 ">
+                        Enter the six digit code sent to your phone
+                    </h3>
+                    <div id="otp" class="flex flex-row justify-center text-center px-2 mt-5">
+                        <input class="m-2 border h-10 w-10 text-center form-control rounded" type="text" id="first"
+                            maxlength="1" />
+                        <input class="m-2 border h-10 w-10 text-center form-control rounded" type="text" id="second"
+                            maxlength="1" />
+                        <input class="m-2 border h-10 w-10 text-center form-control rounded" type="text" id="third"
+                            maxlength="1" />
+                        <input class="m-2 border h-10 w-10 text-center form-control rounded" type="text" id="fourth"
+                            maxlength="1" />
+                        <input class="m-2 border h-10 w-10 text-center form-control rounded" type="text" id="fifth"
+                            maxlength="1" />
+                        <input class="m-2 border h-10 w-10 text-center form-control rounded" type="text" id="sixth"
+                            maxlength="1" />
+                    </div>
+                    <div class="flex flex-col justify-center items-center mt-5">
+                        <button type="submit"
+                            class=" px-4 py-2 border
+                                      border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 
+                                       active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25  ml-4">
+                            Continue
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+
+            function OTPInput() {
+                const inputs = document.querySelectorAll('#otp > *[id]');
+                for (let i = 0; i < inputs.length; i++) { inputs[i].addEventListener('keydown', function (event) { if (event.key === "Backspace") { inputs[i].value = ''; if (i !== 0) inputs[i - 1].focus(); } else { if (i === inputs.length - 1 && inputs[i].value !== '') { return true; } else if (event.keyCode > 47 && event.keyCode < 58) { inputs[i].value = event.key; if (i !== inputs.length - 1) inputs[i + 1].focus(); event.preventDefault(); } else if (event.keyCode > 64 && event.keyCode < 91) { inputs[i].value = String.fromCharCode(event.keyCode); if (i !== inputs.length - 1) inputs[i + 1].focus(); event.preventDefault(); } } }); }
+            } OTPInput();
+        });
+    </script>
+</body>
+
+</html>

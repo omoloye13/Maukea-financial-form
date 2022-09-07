@@ -1,0 +1,20 @@
+*{
+    margin: 0em;
+    padding: 0em;
+    box-sizing: border-box;
+    font-family: 'Nunito';
+}
+body{
+    background-color: #F4F5f7;
+}
+button{
+    background-color: #1F3864 !important;
+}
+@media(max-width:650px){
+    .container{
+        width: 90% !important;
+    }
+    .top{
+        margin-top: 1em !important;
+    }
+}
